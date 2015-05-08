@@ -1,0 +1,5 @@
+<div class="pill-box">
+  <% tags.each do |tag| %>
+    <%= link_to tag.title, tag, class: "btn btn-default tag-pill", style: "background-color: #{tag.color}" %>
+  <% end %>
+</div>

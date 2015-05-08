@@ -1,0 +1,3 @@
+<h3 class='tag-header' style='background-color: <%= @tag.color %>'><%= @tag.title %></h3>
+
+<%= render partial: 'recipes/recipes', locals: { recipes: @tag.recipes } %>

@@ -1,0 +1,19 @@
+<div class="pin-wrapper">
+  <div class="pin-columns">
+    <% recipes.each do |recipe| %>
+      <%= link_to recipe do %>
+        <div class="pin" style="background: <%= recipe.tags.first.color || '#ECECEC' %>">
+          <img src="http://images.clipartlogo.com/files/ss/thumb/245/24570127/big-collection-of-different_small.jpg" />
+          <p class="recipe-title">
+            <%= recipe.title %>
+          </p>
+          <p>
+            <% if recipe.star %>
+              <i class="glyphicon glyphicon-star rcp-btn"></i>
+            <% end %>
+          </p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

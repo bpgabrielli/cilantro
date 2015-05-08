@@ -1,0 +1,54 @@
+<br>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h2 class="media-heading">
+      <%= recipe.title %>
+        <% if recipe.link %>
+         <%= link_to recipe.link do %> <!-- FIX THIS -->
+           <i class="glyphicon glyphicon-link title-link"></i>
+         <% end %>
+        <% end %>
+    </h2>
+    <small>
+      <%= recipe.subhead %>
+    </small>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-body">
+          <%= simple_format(recipe.intro) %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">notes</div>
+      <div class="panel-body">
+          <%= simple_format(recipe.notes) %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">ingredients</div>
+      <div class="panel-body">
+          <%= simple_format(recipe.ingredients) %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="panel panel-default steps-panel">
+      <div class="panel-heading">steps</div>
+        <%= step_wrapper(recipe.steps) %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render partial: 'tags/tags', locals: { tags: recipe.tags } %>

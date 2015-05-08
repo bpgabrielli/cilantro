@@ -1,0 +1,69 @@
+<%= form_for @recipe do |f| %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="form-group recipe-field">
+        <%= f.text_field :title, rows: 1, class: 'form-control input-lg', placeholder: "title" %>
+      </div>
+      <div class="form-group recipe-field">
+        <%= f.text_field :subhead, rows: 1, class: 'form-control input-sm', placeholder: "metadata (author, servings, time, etc)" %>
+      </div>
+      <div class="form-group recipe-field">
+        <%= f.text_area :intro, rows: 3, class: 'form-control', placeholder: "intro" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="form-group recipe-field">
+            <%= f.text_area :ingredients, rows: 8, cols: 10, class: 'form-control', placeholder: "ingredients" %>
+            <span class="help-block">(one ingredient per line)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="form-group recipe-field">
+            <%= f.text_area :steps, rows: 8, cols: 10, class: 'form-control', placeholder: "steps" %>
+            <span class="help-block">(double-space between each step)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="form-group recipe-field">
+        <%= f.text_area :notes, rows: 5, cols: 10, class: 'form-control', placeholder: "notes" %>
+      </div>
+    </div>
+  </div>
+
+    <div class="large-10 large-centered columns">
+      <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>
+    </div>
+
+    <div class="form-group">
+      <label for="select" class="col-lg-2 control-label">tags</label>
+      <div class="col-lg-10">
+        <select multiple="" class="form-control">
+          <% current_user.tags.each do |tag| %>
+            <option><%= tag.title %></option>
+          <% end %>
+        </select>
+      </div>
+    </div>
+
+  <div class="form-group recipe-field">
+    <%= f.check_box :star %>
+    <%= f.label :favorite %>
+  </div>
+  <div class="form-group recipe-field">
+    <%= f.submit "Save", class: 'btn btn-success' %>
+  </div>
+<% end %>

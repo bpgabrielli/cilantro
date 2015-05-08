@@ -1,0 +1,213 @@
+//Import bootstrap-sprockets
+@import "bootstrap-sprockets";
+
+// Import paper variables
+@import "bootswatch/paper/variables";
+
+// Then bootstrap itself
+@import "bootstrap";
+
+// Bootstrap body padding for fixed navbar
+body { padding-top: 60px; }
+
+// And finally bootswatch style itself
+@import "bootswatch/paper/bootswatch";
+
+.pill-box {
+  max-width: 900px;
+  margin: 0 auto 0 auto;
+  text-align: center;
+}
+
+.tag-pill {
+  border-radius: 50px !important;
+  margin: 6px;
+  color: #fff;
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.tag-pill:hover, .tag-pill:focus, .tag-pill:active {
+  opacity: 0.8;
+  color: #252525;
+}
+
+.tag-header {
+  text-align: center;
+  padding: 15px;
+  border-radius: 50px;
+}
+
+.recipe-field {
+  margin: 10px 0 10px 0;
+}
+
+.input-lg {
+  height: 45px !important;
+  padding: 10px 16px 10px 0 !important;
+  font-size: 25px !important;
+  line-height: 1.33 !important;
+  border-radius: 3px !important;
+}
+
+.input-sm {
+  height: 30px !important;
+  padding: 5px 10px 5px 0 !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+  border-radius: 3px !important;
+}
+
+.title-link {
+  font-size: 14px;
+}
+
+.form-icon {
+  // in case you want to add glyphicons to forms
+}
+
+.steps-panel {
+  padding-bottom: 10px;
+}
+
+.step-panel {
+  margin: 10px 15px 10px 15px;
+}
+
+.rcp-btn{
+  font-size: 20px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.pin-wrapper {
+  width: 90%;
+  max-width: 16000px;
+  min-width: 100px;
+  margin: 30px auto;
+}
+
+.pin-columns {
+  -webkit-column-count: 1;
+  -webkit-column-gap: 10px;
+  -webkit-column-fill: auto;
+  -moz-column-count: 1;
+  -moz-column-gap: 10px;
+  -moz-column-fill: auto;
+  column-count: 1;
+  column-gap: 10px;
+  column-fill: auto;
+}
+
+.pin {
+  // display: inline-block;
+  border: 2px solid #FAFAFA;
+  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  margin: 0px 5px 15px 5px;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  column-break-inside: avoid;
+  padding: 15px;
+  padding-bottom: 5px;
+  background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
+  opacity: 1;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow: hidden;
+  min-height: 150px;
+  min-width: 150px;
+  text-align: center;
+}
+
+.pin:hover:before, .pin:focus:before, .pin:active:before {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  border-width: 4px;
+}
+
+.pin:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-color: #428bca;
+  border-style: solid;
+  border-width: 0;
+  -webkit-transition-property: border-width;
+  transition-property: border-width;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.pin img {
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+  margin-bottom: 5px;
+}
+
+.pin p {
+  // font: 12px/18px Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.pin p > a {
+  text-decoration: none;
+}
+
+.pin p.recipe-title {
+  margin-bottom: 5px;
+}
+
+/* Smaller devices (tablets, 7480px and up) */
+@media (min-width: 480px) {
+  .pin-columns {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+}
+
+/* Small devices (tablets, 650px and up) */
+@media (min-width: 650px) {
+  .pin-columns {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .pin-columns {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+  }
+}
+
+// /* Large devices (large desktops, 1200px and up) */
+// @media (min-width: 1200px) {
+//   .pin-columns {
+//     -webkit-column-count: 5;
+//     -moz-column-count: 5;
+//     column-count: 5;
+//   }
+// }

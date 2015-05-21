@@ -8,10 +8,15 @@
 @import "bootstrap";
 
 // Bootstrap body padding for fixed navbar
-body { padding-top: 60px; }
+// body { padding-top: 60px; }
 
 // And finally bootswatch style itself
 @import "bootswatch/paper/bootswatch";
+
+hr {
+  margin-left: 15%;
+  margin-right: 15%;
+}
 
 .pill-box {
   max-width: 900px;
@@ -28,11 +33,32 @@ body { padding-top: 60px; }
   -webkit-transition: all 0.2s;
   -o-transition: all 0.2s;
   transition: all 0.2s;
+  border: 3px solid transparent;
+}
+
+.tag-selected {
+  color: #333;
+  background-color: #fff;
+}
+
+.tag-selected:hover {
+  opacity: 1;
+  color: #fff;
+  background-color: inherit !important;
+}
+
+.sticky-tag {
+  border-radius: 3px !important;
+  color: #333;
+}
+
+.new-recipe-button {
+  // color: #fff !important;
 }
 
 .tag-pill:hover, .tag-pill:focus, .tag-pill:active {
   opacity: 0.8;
-  color: #252525;
+  color: #000;
 }
 
 .tag-header {

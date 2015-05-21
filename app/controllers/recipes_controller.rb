@@ -4,6 +4,9 @@ require 'Parsenip'
 
   def index
     @recipes = current_user.recipes
+    @recipes = @recipes.favorited if params[:favorites]
+    @recipes = @recipes.tagged_with_all(params[:tags]) if params[:tags]
+    @recipes = @recipes.favorited_and_tagged_with_all(params[:tags]) if params[:tags] && params[:favorites]
   end
 
   def show
@@ -26,6 +29,7 @@ require 'Parsenip'
   end
 
   def edit
+    @recipe = Recipe.find(params[:id])
   end
 
   def update
@@ -42,7 +46,7 @@ require 'Parsenip'
 private
 
   def recipe_params
-    params.require(:recipe).permit(:link, :title, :intro, :ingredients, :steps, :notes, :subhead, :star, :all_tags)
+    params.require(:recipe).permit(:link, :title, :intro, :ingredients, :steps, :notes, :subhead, :star, :all_tags, :tags, :favorites)
   end
 
 end

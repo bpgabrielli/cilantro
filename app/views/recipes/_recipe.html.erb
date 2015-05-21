@@ -15,21 +15,9 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-8">
-    <div class="panel panel-default">
-      <div class="panel-body">
-          <%= simple_format(recipe.intro) %>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="panel panel-default">
-      <div class="panel-heading">notes</div>
-      <div class="panel-body">
-          <%= simple_format(recipe.notes) %>
-      </div>
-    </div>
+<div class="panel panel-default">
+  <div class="panel-body">
+      <%= simple_format(recipe.intro) %>
   </div>
 </div>
 
@@ -37,7 +25,7 @@
   <div class="col-md-4">
     <div class="panel panel-default">
       <div class="panel-heading">ingredients</div>
-      <div class="panel-body">
+      <div class="panel-body ingredient-list">
           <%= simple_format(recipe.ingredients) %>
       </div>
     </div>
@@ -46,9 +34,17 @@
     <div class="panel panel-default steps-panel">
       <div class="panel-heading">steps</div>
         <%= step_wrapper(recipe.steps) %>
-      </div>
     </div>
   </div>
 </div>
+
+<% if recipe.notes != "" %>
+  <div class="panel panel-default">
+    <div class="panel-heading">notes</div>
+    <div class="panel-body">
+        <%= simple_format(recipe.notes) %>
+    </div>
+  </div>
+<% end %>
 
 <%= render partial: 'tags/tags', locals: { tags: recipe.tags } %>

@@ -1,5 +1,18 @@
 <div class="pill-box">
+  <% if params[:favorites].nil? %>
+    <%= link_to recipes_path(params.merge(favorites: true)), class: "btn btn-warning tag-pill sticky-tag tag-selected", style: "border: 3px solid #FF9800" do %>
+      <span class="glyphicon glyphicon-star" aria-hidden="true" style="color: #FF9800"></span> favorites
+    <% end %>
+  <% else %>
+    <%= link_to recipes_path(tags: params[:tags]), class: "btn btn-warning tag-pill sticky-tag" do %>
+      <span class="glyphicon glyphicon-star" aria-hidden="true" style="color: #333"></span> favorites
+    <% end %>
+  <% end %>
   <% tags.each do |tag| %>
-    <%= link_to tag.title, tag, class: "btn btn-default tag-pill", style: "background-color: #{tag.color}" %>
+    <% if params[:tags].to_a.include?(tag.title) %>
+      <%= link_to tag.title, recipes_path(params.merge(tags: params[:tags].to_a - [tag.title])), class: "btn btn-success tag-pill", style: "background-color: #{tag.color}" %>
+    <% else %>
+      <%= link_to tag.title, recipes_path(params.merge(tags: params[:tags].to_a | [tag.title])), class: "btn btn-success tag-pill tag-selected", style: "border: 3px solid #{tag.color}" %>
+    <% end %>
   <% end %>
 </div>

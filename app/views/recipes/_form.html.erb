@@ -45,18 +45,7 @@
   </div>
 
     <div class="large-10 large-centered columns">
-      <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>
-    </div>
-
-    <div class="form-group">
-      <label for="select" class="col-lg-2 control-label">tags</label>
-      <div class="col-lg-10">
-        <select multiple="" class="form-control">
-          <% current_user.tags.each do |tag| %>
-            <option><%= tag.title %></option>
-          <% end %>
-        </select>
-      </div>
+      <%= f.text_field :all_tags, autocomplete:'off', class: 'form-control', placeholder: "tags (separate by commas)" %>
     </div>
 
   <div class="form-group recipe-field">

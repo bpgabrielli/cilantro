@@ -3,23 +3,32 @@
   <div class="panel-body">
     <h2 class="media-heading">
       <%= recipe.title %>
+        <% if recipe.notes != "" %>
+        <button type="button" class="btn btn-link notes-button" data-toggle="modal" data-target="#notes">
+          <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+        </button>
+        <% end %>
         <% if recipe.link %>
          <%= link_to recipe.link do %> <!-- FIX THIS -->
            <i class="glyphicon glyphicon-link title-link"></i>
          <% end %>
         <% end %>
     </h2>
-    <small>
-      <%= recipe.subhead %>
-    </small>
+    <% if recipe.subhead != "" %>
+      <small>
+        <%= recipe.subhead %>
+      </small>
+    <% end %>
   </div>
 </div>
 
-<div class="panel panel-default">
-  <div class="panel-body">
-      <%= simple_format(recipe.intro) %>
+<% if recipe.intro != "" %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+        <%= simple_format(recipe.intro) %>
+    </div>
   </div>
-</div>
+<% end %>
 
 <div class="row">
   <div class="col-md-4">
@@ -39,10 +48,20 @@
 </div>
 
 <% if recipe.notes != "" %>
-  <div class="panel panel-default">
-    <div class="panel-heading">notes</div>
-    <div class="panel-body">
-        <%= simple_format(recipe.notes) %>
+  <div class="modal fade" id="notes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h5 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>  notes</h5>
+        </div>
+        <div class="modal-body">
+          <%= simple_format(recipe.notes) %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default">+ add</button>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>

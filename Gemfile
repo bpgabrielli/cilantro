@@ -12,6 +12,8 @@ gem 'bootswatch-rails'
 
 gem 'cocoon'
 
+gem 'jquery-ui-rails'
+
 group :production do
  gem 'pg'
  gem 'rails_12factor'
